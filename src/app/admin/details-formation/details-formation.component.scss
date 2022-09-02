@@ -1,0 +1,23 @@
+input {
+  height: 30px;
+  width: 175px;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 0 0 20px;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.datefin{
+  position:relative;
+  left:-270px;
+}
+.info{
+  width:450px;
+}
+td {
+  White-space: nowrap;
+  padding: 5px;
+}
+table {
+  border-collapse: separate;
+}

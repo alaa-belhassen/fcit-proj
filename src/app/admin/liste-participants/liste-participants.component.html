@@ -1,0 +1,52 @@
+
+<table >
+  <div  *ngIf="affiche === 0">
+    <div class="container">
+      <div class="cont">
+        <svg class="photo" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="upload">
+          <label for="file-upload" class="file">
+            <span>Upload a file</span>
+            <input id="file-upload"  (change)="onFileChange($event)" name="file-upload" type="file"  multiple="false" class="sr-only">
+          </label>
+          <p class="pl-1">or drag and drop</p>
+        </div>
+        <p class="words">Excel participant file </p>
+      </div>
+    </div>
+  </div>
+
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let val of row">
+        {{ val }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table  *ngIf="affiche === 1" >
+  <div class="header">
+    <ul>
+      <li>#</li>
+       <li>Participants</li>
+       <li>Identifiant</li>
+       <li>Email</li>
+    </ul>
+ </div>
+ <div class="content">
+  <tbody >
+    <tr *ngFor="let p of ListeParticipant; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        {{ p.participant }}
+      </td>
+      <td>{{ p.identifiant }}</td>
+      <td>{{ p.email }}</td>
+    </tr>
+  </tbody>
+   
+ </div>
+
+</table>
