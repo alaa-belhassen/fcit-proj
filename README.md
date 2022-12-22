@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## backend file is given with the project node.js
 
-to start the server tap npm start in the console 
+to start the server tap `npm start` in the console 
