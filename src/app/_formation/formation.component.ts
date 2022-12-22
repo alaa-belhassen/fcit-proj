@@ -29,7 +29,19 @@ export class FormationComponent implements OnInit {
     private TestService: TestService
   ) {}
 
-  ngOnInit(): void {}
+  getcardinfo(){
+    this.TestService.getParticipant(this.id).subscribe((data:any)=>{
+      console.log(data);
+      this.nombrep=data.length;
+      console.log("data formation received succesfullly");
+  })
+  }
+  ngOnInit(): void {
+    if(!this.eval){
+      this.getcardinfo();
+    }
+    
+  }
   goToEval() {
     this.router.navigate(['evaluation', this.id], { relativeTo: this.route });
   }

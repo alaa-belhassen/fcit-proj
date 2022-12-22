@@ -61,8 +61,8 @@ export class EvaluationComponent implements OnInit {
   comportemental="";
   info=new information();
   setEvaluationtodone(){
-    this.info.comtechnique=this.technique;
-    this.info.comcomportemental=this.comportemental;
+    this.info.evaluationtechnique=this.technique;
+    this.info.evaluationcomportemental=this.comportemental;
     console.log(this.info)
     this.Testservice.evaluationTerminer(this.participantid,this.info).subscribe(()=>{
       console.log("update done formation evaluer !!");

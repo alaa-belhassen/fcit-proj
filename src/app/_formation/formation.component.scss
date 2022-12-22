@@ -22,17 +22,17 @@ $titletext:#00affa;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 .title{
-    
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin:0px 0 -13px 20px; 
     h3{
         margin:15px 0 0 0;
         color:$titletext;
     }
     .droite{
-        margin:16px 0 0 0;
+        margin:16px 0 0 125px;
         position:relative;
-        left:710px;
+        left:20%;
         display:flex;
         flex-wrap: wrap;
         line-height: 8px;
@@ -48,7 +48,8 @@ $titletext:#00affa;
 }
 }
 .bottomside{
-    display:flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     
 .infos{
     margin:15px 0 0 0 ;
@@ -68,7 +69,7 @@ $titletext:#00affa;
 }
 .buttons{
     position:relative;
-    left:550px;
+    left:25%;
     margin:45px 0 0 0;
     display: flex;
     a{

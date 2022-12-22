@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -29,11 +29,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HomeComponent } from './admin/home/home.component';
 import { DetailsFormationComponent } from './admin/details-formation/details-formation.component';
 import { ListeParticipantsComponent } from './admin/liste-participants/liste-participants.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ObjectifsPedagogiquesComponent } from './admin/objectifs-pedagogiques/objectifs-pedagogiques.component';
 import { FicheFormationComponent } from './admin/fiche-formation/fiche-formation.component';
 import { FicheEvalComponent } from './admin/fiche-eval/fiche-eval.component';
 import { ListeFormateurComponent } from './admin/liste-formateur/liste-formateur.component';
+import { AuthGuard } from './auth.guard';
+import { RoleMathGuard } from './role-math.guard';
 
 @NgModule({
   declarations: [
@@ -74,8 +75,9 @@ import { ListeFormateurComponent } from './admin/liste-formateur/liste-formateur
     MatIconModule,
     CommonModule,
     MatDatepickerModule,
+    MatPaginatorModule,
   ],
-  providers: [TestService],
+  providers: [TestService,AuthGuard,RoleMathGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

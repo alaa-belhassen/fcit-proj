@@ -1,16 +1,11 @@
-<p>Fiche des participants</p>
-<div class="example-container mat-elevation-z8">
-    <div class="example-header">
-      <mat-form-field>
-        <input matInput  placeholder="Filter">
-      </mat-form-field>
-    </div>
-  
-    <mat-table #table [dataSource]="participants">
+<h2>Fiche des participants</h2>
+<app-formation  [title]="title"  [dates]="date" [eval]="true" [nombrep]="participants.length" [nombreval]="evaluation()"></app-formation>
+<div >
+    <mat-table  #table [dataSource]="dataSource">
   
       <!-- Position Column -->
       <ng-container matColumnDef="participantid">
-        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef > Participant Id </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.participantid}} </mat-cell>
       </ng-container>
   
@@ -22,18 +17,29 @@
   
       <!-- Weight Column -->
       <ng-container matColumnDef="etat">
-        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.etat}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef> Etat </mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngClass]="element.etat === 'évaluer' ? 'green' : 'orange' "> {{element.etat}} </mat-cell>
       </ng-container>
   
       <!-- Symbol Column -->
       <ng-container matColumnDef="dmaj">
-        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Date miseàjour  </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.dmaj}} </mat-cell>
       </ng-container>
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      
     </mat-table>
+    <mat-paginator 
+    [pageSizeOptions]="[4,5,6]"
+    showFirstLastButtons 
+    aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
   
+  <div class="button">
+    <button mat-button (click)="goBack()" > <span class="material-symbols-outlined">
+      keyboard_return
+      </span> return</button>
+  </div>

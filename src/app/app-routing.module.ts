@@ -14,22 +14,36 @@ import { NavformateurComponent } from './navformateur/navformateur.component';
 import { LoginComponent } from './login/login.component';
 import { FormationplanifierComponent } from './admin/formationplanifier/formationplanifier.component';
 import { FormationpasseeComponent } from './admin/formationpassee/formationpassee.component';
+import { AuthGuard } from './auth.guard';
+import { RoleMathGuard } from './role-math.guard';
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent ,
+  canActivate:[]
+},
   {
     path: 'admin',
     component: NavadminComponent,
+    canActivate:[AuthGuard,RoleMathGuard],
+    data:{
+      role:'admin'
+    },
     children: [
+      {path:'',component:PageacceuilComponent},
       { path: 'formationplanifier', component: FormationplanifierComponent },
       { path: 'home', component: HomeComponent },
       { path: 'formationpassee', component: FormationpasseeComponent },
       { path: 'formateurs', component: ListeFormateurComponent },
-    ],
+    ]
   },
   {
     path: 'formateur',
     component: NavformateurComponent,
+    canActivate:[AuthGuard,RoleMathGuard],
+    data:{
+      role:'formateur'
+    },
     children: [
+      { path: '', component: PageacceuilComponent },
       { path: 'profile', component: ProfileformateurComponent },
       {
         path: 'mesformations',

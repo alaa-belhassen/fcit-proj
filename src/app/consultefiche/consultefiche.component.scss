@@ -1,0 +1,47 @@
+$titletext:#00affa;
+$navbackground: #162033;
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: $navbackground;
+    font-weight: 700;
+    margin: 40px 0 20px 20px;
+  }
+  
+button{
+    position:absolute;
+    top:40px;right:45px;
+    color:white;
+    background-color:$titletext  ;
+    transition: all 0.4s ease-in-out;
+    &:hover{
+        background:#039cde ;
+    }
+}
+
+app-formation{
+    position:relative;
+    top:25px;
+}
+mat-paginator{
+    margin: 0px 0px 0 20px ; 
+    width:95%;
+}
+mat-table   {
+    margin: 80px 0px 0 20px ; 
+    width:95%;
+    mat-header-cell{
+        background-color: $titletext;
+        color :white;
+        font-weight: 500;
+        font-size:medium;
+       
+    }
+
+}
+
+.orange{
+    color:#f6b26b;
+}
+.green{
+    color:#6aa84f;
+}

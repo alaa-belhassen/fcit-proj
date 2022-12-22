@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   @HostListener('window:keydown',['$event']) goNextEvent(event:any){
     if(event.keyCode===13){
-      this.logit();
+      this.logit2();
     }
   }
   constructor(
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       this.users=data;
     })
   }
-
+ // ************* old log in ******************* 
   /*getUsersByEmail() {
     this.test.getUserByEmail(this.login).subscribe((data: any) => {
       console.log(data);
@@ -42,9 +42,9 @@ export class LoginComponent implements OnInit {
     });
   }*/
   // log in process 
-  showEror=false;
+
  
-  logit(){
+  /*logit(){
     console.log(this.login)
     let role="";
     let trouve=false;
@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
       }
    
     })
+   
 
     if(trouve){
       console.log("welcome "+this.login);
@@ -72,5 +73,26 @@ export class LoginComponent implements OnInit {
       }
       
     }
+  }*/
+  
+   // *************  new log in ******************* 
+   showEror=false;
+  logit2(){
+  let  trouve =  this.users.find(user => (user.mail === this.login)&&(user.password=== this.password) ) 
+   console.log(trouve);
+   if (trouve === undefined){
+    this.showEror=true;
+   }
+   console.log(localStorage.getItem('login'))
+   if(trouve){
+    console.log("welcome "+trouve.mail);
+    localStorage.setItem('login',trouve.mail);
+    localStorage.setItem('role',trouve.role);
+      if(trouve.role==="admin"){
+        this.router.navigate(['admin'],{relativeTo: this.route});
+      }else if(trouve.role==="formateur"){
+        this.router.navigate(['formateur'],{relativeTo: this.route});
+      }
+   }
   }
 }

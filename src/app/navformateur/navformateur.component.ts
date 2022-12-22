@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navformateur',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavformateurComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-
+  disconnect(){
+    this.router.navigate(['/'])
+    localStorage.clear();
+  }
+  name= localStorage.getItem('login');
+  role= localStorage.getItem('role');
 }

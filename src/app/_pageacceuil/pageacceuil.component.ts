@@ -11,5 +11,5 @@ export class PageacceuilComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  name=localStorage.getItem('login')
 }

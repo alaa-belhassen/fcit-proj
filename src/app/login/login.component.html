@@ -10,13 +10,13 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Password</mat-label>
-          <input [(ngModel)]="password" matInput />
+          <input [(ngModel)]="password" type="password" matInput />
           <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
         </mat-form-field>
       </div>
       <p class="eror" *ngIf="showEror">   login or password incorrect</p>
       <p class="mdp">mot de passe oublier</p>
-      <button mat-button (click)="logit()" class="btn-shape">
+      <button mat-button (click)="logit2()" class="btn-shape">
         se connecter
       </button>
     </div>

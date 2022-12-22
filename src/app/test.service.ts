@@ -147,4 +147,11 @@ export class TestService {
     console.warn('DATA FROM SERVICE ==', data);
     return data;
   }
+
+
+  //user loged in
+  loggedIn(){
+    return !!localStorage.getItem('login');
+  }
+
 }

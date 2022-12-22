@@ -1,5 +1,5 @@
 export class information{
-    comtechnique:string;
-    comcomportemental:string;
+  evaluationtechnique:string;
+  evaluationcomportemental:string;
   }
   

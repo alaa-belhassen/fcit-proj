@@ -13,8 +13,8 @@
             <div class="profile">
               <img src="" alt="">
               <div class="role">
-              <p></p>
-              <span class="role"></span>
+              <p>{{name}}</p>
+              <span class="role">{{role}}</span>
               </div>
             </div>
             <a routerLink="/formateur/acceuil">
@@ -54,7 +54,7 @@
              <div class="logout">
                 
                 <span class="material-symbols-outlined">logout</span>
-                <p routerLink="" >Déconnection</p>
+                <p  (click)="disconnect()">Déconnection</p>
               </div>
             </div>
         </div>
